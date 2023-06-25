@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Subir archivo a Amazon S3</title>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.110.0.min.js"></script>
+    <script>
+        AWS.config.region = 'us-east-1'; // Reemplaza 'REGION' con tu región de AWS
+        AWS.config.credentials = new AWS.Credentials('ASIARV4UP62ZHMLQFKGO', 'PiaGvQZhMNfUi4AgddNmNzguOXJjGYw58CSlqEVL'); // Reemplaza 'ACCESS_KEY' y 'SECRET_KEY' con tus propias credenciales de AWS
+
+        function subirArchivo() {
+            var archivo = document.getElementById("archivo").files[0];
+            var nombreArchivo = archivo.name;
+            var bucketNombre = window.location.hostname; // Obtener el nombre del bucket del hostname de la página web
+
+            var bucket = new AWS.S3({
+                params: { Bucket: bucketNombre }
+            });
+
+            var params = {
+                Key: nombreArchivo,
+                Body: archivo
+            };
+
+            bucket.upload(params, function (err, data) {
+                if (err) {
+                    console.log("Error al subir el archivo: ", err);
+                } else {
+                    console.log("Archivo cargado exitosamente. URL pública: ", data.Location);
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Subir archivo a Amazon S3</h1>
+    <input type="file" id="archivo">
+    <button onclick="subirArchivo()">Subir archivo</button>
+</body>
+
+</html>
