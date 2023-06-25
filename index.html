@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mi Aplicación</title>
+  <title>Subir archivo a Amazon S3</title>
 </head>
 <body>
-    <h1>Subir Imagen</h1>
-    <form id="uploadForm">
-        <input type="file" id="imageInput" />
-        <button type="submit">Subir imagen</button>
-    </form>
+  <h1>Subir archivo a Amazon S3</h1>
+  <input type="file" id="archivo">
+  <button onclick="subirArchivo()">Subir archivo</button>
 
-    <!-- Enlazar el archivo JavaScript -->
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.100.0.min.js"></script>
-    <script src="main.js"></script>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.110.0.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
