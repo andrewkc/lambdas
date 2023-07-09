@@ -1,0 +1,13 @@
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1687664984033",
+    "Statement": [
+        {
+            "Sid": "Stmt1687664972065",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::image-bucket-pro/*"
+        }
+    ]
+}

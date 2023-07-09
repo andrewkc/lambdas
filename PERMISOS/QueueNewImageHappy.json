@@ -1,0 +1,17 @@
+{
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": {
+          "Service": "sns.amazonaws.com"
+        },
+        "Action": "sqs:SendMessage",
+        "Resource": "arn:aws:sqs:us-east-1:801004957250:QueueNewImageHappy",
+        "Condition": {
+          "ArnEquals": {
+            "aws:SourceArn": "arn:aws:sns:us-east-1:801004957250:NewImage"
+          }
+        }
+      }
+    ]
+  }
